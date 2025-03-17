@@ -347,10 +347,17 @@ h6,
     z-index: 1;
 }
 
+
 .screenshot-carousel .owl-item img {
     position: relative;
     width: 223px;
     height: 470px;
+    
+}
+
+.screenshot-carousel img {
+    border-radius: 15px;
+    scale: 0.99;
 }
 
 .screenshot-carousel .owl-dots {
