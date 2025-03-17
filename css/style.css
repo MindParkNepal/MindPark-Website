@@ -193,14 +193,28 @@ h6,
     color: #FFFFFF;
 }
 
+.navbar-light .navbar-brand .img-background {
+    max-height: 60px;
+    max-width: 60px;
+    transition: 1s;
+    border-radius: 50px;
+    background-color: white;
+}
+
+
 .navbar-light .navbar-brand img {
     max-height: 60px;
     transition: .5s;
 }
 
+.sticky-top.navbar-light .navbar-brand .img-background {
+    max-height: 45px;
+}
+
 .sticky-top.navbar-light .navbar-brand img {
     max-height: 45px;
 }
+
 
 @media (max-width: 991.98px) {
     .sticky-top.navbar-light {
@@ -233,6 +247,10 @@ h6,
         background: linear-gradient(to bottom right, var(--primary), var(--secondary));
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
+    }
+
+    .navbar-light .navbar-brand .img-background {
+        max-height: 45px;
     }
 
     .navbar-light .navbar-brand img {
