@@ -94,7 +94,7 @@
     <div class="container py-5 px-lg-5">
         <div class="row g-5 align-items-center">
             <div class="col-lg-6">
-                <img class="img-fluid wow fadeInUp" data-wow-delay="0.1s" src="img/Frame-3.png" alt="MindPark App">
+                <img class="img-fluid wow fadeInUp" data-wow-delay="0.1s" src="img/Frame.png" alt="MindPark App">
             </div>
             <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
                 <!-- <h5 class="text-primary-gradient fw-medium">Download</h5> -->
@@ -450,29 +450,30 @@
             <div class="col-lg-9">
                 <div class="wow fadeInUp" data-wow-delay="0.3s">
                     <p class="text-center mb-4">Have a question or need help? Reach out to us, and we'll respond as soon as possible. Fill out the form below to get started!</p>
-                    <form>
+                    <form action="https://api.web3forms.com/submit" method="POST">
                         <div class="row g-4">
+                            <input type="hidden" name="access_key" value="04a2b8d7-bbb3-425a-8621-6017260de4db">
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+                                    <input type="text" class="form-control" name="fullName" id="name" placeholder="Your Name" required>
                                     <label for="name">Your Name</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control" id="email" placeholder="Your Email" required>
+                                    <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" required>
                                     <label for="email">Your Email</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="subject" placeholder="Subject" required>
+                                    <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required>
                                     <label for="subject">Subject</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 150px" required></textarea>
+                                    <textarea class="form-control" placeholder="Leave a message here" id="message" name="message" style="height: 150px" required></textarea>
                                     <label for="message">Message</label>
                                 </div>
                             </div>
