@@ -465,6 +465,11 @@ h6,
     background-repeat: no-repeat;
 }
 
+.footer .email-link {
+    text-decoration: none;
+    color: var(--light);
+}
+
 .footer .btn.btn-social {
     margin-right: 5px;
     width: 40px;
