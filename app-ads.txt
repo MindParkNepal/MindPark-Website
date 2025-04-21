@@ -1,0 +1,4 @@
+# Authorized sellers for MindPark app advertising
+
+# Google AdMob
+google.com, pub-5155816302188944, DIRECT, f08c47fec0942fa0
