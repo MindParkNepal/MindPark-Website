@@ -2,7 +2,7 @@
 const { test } = require('node:test');
 const assert = require('node:assert/strict');
 const { loadBlog, topicCategoryIds, TOPICS } = require('../server/wordpress');
-const { renderArticle, renderListing, safeContent } = require('../generated/blog-render.cjs');
+const { renderArticle, renderListing, safeContent } = require('../server/blog-render');
 const handler = require('../api/blog');
 const post = {id:28,slug:'a-real-post',status:'publish',date_gmt:'2026-09-01T08:06:08',title:{rendered:'A &amp; B'},excerpt:{rendered:'<p>Useful reading.</p>',protected:false},content:{rendered:'<p>Hello <strong>parents</strong>.</p>',protected:false}};
 const response = (data, pages=1) => new Response(JSON.stringify(data),{headers:{'content-type':'application/json','x-wp-totalpages':String(pages),'x-wp-total':'4'}});
