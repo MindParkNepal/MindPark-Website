@@ -1,6 +1,6 @@
 'use strict';
 const { loadBlog } = require('../server/wordpress');
-const { renderListing, renderArticle, renderError } = require('../server/blog-render');
+const { renderListing, renderArticle, renderError } = require('../generated/blog-render.cjs');
 
 module.exports = async function blog(req, res) {
   res.setHeader('Content-Type', 'text/html; charset=utf-8');
