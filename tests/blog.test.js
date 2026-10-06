@@ -2,8 +2,24 @@
 const { test } = require('node:test');
 const assert = require('node:assert/strict');
 const { loadBlog, topicCategoryIds, TOPICS } = require('../server/wordpress');
-const { renderArticle, renderListing, safeContent } = require('../server/blog-render');
+const { renderArticle, renderListing, safeContent } = require('../server/blog-render.bundle.cjs');
 const handler = require('../api/blog');
+test('deployment starts without node_modules or experimental require(ESM)',()=>{
+  const fs = require('node:fs');
+  const path = require('node:path');
+  const os = require('node:os');
+  const { spawnSync } = require('node:child_process');
+  const directory = fs.mkdtempSync(path.join(os.tmpdir(),'mindpark-blog-startup-'));
+  try {
+    for (const file of ['api/blog.js','server/wordpress.js','server/blog-render.bundle.cjs']) {
+      const destination = path.join(directory,file);
+      fs.mkdirSync(path.dirname(destination),{recursive:true});
+      fs.copyFileSync(path.join(__dirname,'..',file),destination);
+    }
+    const result = spawnSync(process.execPath,['--no-experimental-require-module','-e','require("./api/blog.js")'],{cwd:directory,encoding:'utf8'});
+    assert.equal(result.status,0,result.stderr);
+  } finally { fs.rmSync(directory,{recursive:true,force:true}); }
+});
 const post = {id:28,slug:'a-real-post',status:'publish',date_gmt:'2026-09-01T08:06:08',title:{rendered:'A &amp; B'},excerpt:{rendered:'<p>Useful reading.</p>',protected:false},content:{rendered:'<p>Hello <strong>parents</strong>.</p>',protected:false}};
 const response = (data, pages=1) => new Response(JSON.stringify(data),{headers:{'content-type':'application/json','x-wp-totalpages':String(pages),'x-wp-total':'4'}});
 
