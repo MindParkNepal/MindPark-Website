@@ -1,0 +1,16 @@
+{
+  "name": "mindpark-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "MindPark website with WordPress-powered articles",
+  "scripts": {
+    "dev": "node scripts/dev-server.js",
+    "test": "node --test tests/*.test.js"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "sanitize-html": "2.18.0"
+  }
+}
